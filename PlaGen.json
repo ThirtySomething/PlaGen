@@ -1,7 +1,10 @@
 {
     "LOGGING": {
         "logfile": "PlaGen.log",
-        "loglevel": "info",
+        "loglevel": "debug",
         "logstring": "%(asctime)s | %(levelname)s | %(filename)s:%(lineno)s:%(funcName)s | %(message)s"
+    },
+    "PROGRAM": {
+        "extension": "m3u"
     }
 }
