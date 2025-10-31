@@ -1,0 +1,7 @@
+{
+    "LOGGING": {
+        "logfile": "PlaGen.log",
+        "loglevel": "info",
+        "logstring": "%(asctime)s | %(levelname)s | %(filename)s:%(lineno)s:%(funcName)s | %(message)s"
+    }
+}
