@@ -15,3 +15,4 @@ class PlagenConfig(MDO):
         self.add(PlagenDefines.section_logging, PlagenDefines.logging_logstring, "%(asctime)s | %(levelname)s | %(filename)s:%(lineno)s:%(funcName)s | %(message)s")
         # --- Program settings ---
         self.add(PlagenDefines.section_program, PlagenDefines.program_playlist_extension, "m3u")
+        self.add(PlagenDefines.section_program, PlagenDefines.program_playlist_path, "")

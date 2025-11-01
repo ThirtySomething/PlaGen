@@ -31,8 +31,9 @@ class FrmMain(frmmain):
         dlg: DlgPlaylistNew = DlgPlaylistNew(self)
         dlg.init_special(self.config)
         dlg.ShowModal()
-        if 0 < len(dlg.playlistname):
-            logging.info(f"New playlist [{dlg.playlistname}]")
+        playlistname: str = dlg.playlistname_get()
+        if 0 < len(playlistname):
+            logging.info(f"New playlist [{playlistname}]")
         dlg.Destroy()
 
     def on_menu_file_exit(self, event: wx.CommandEvent) -> None:

@@ -5,6 +5,7 @@
         "logstring": "%(asctime)s | %(levelname)s | %(filename)s:%(lineno)s:%(funcName)s | %(message)s"
     },
     "PROGRAM": {
-        "extension": "m3u"
+        "playlist_extension": "m3u",
+        "playlist_path": "R:\\tagged\\Playlists"
     }
 }

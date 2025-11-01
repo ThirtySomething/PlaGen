@@ -10,4 +10,5 @@ class PlagenDefines:
 
     # Program settings
     section_program: str = "program"
-    program_playlist_extension: str = "extension"
+    program_playlist_extension: str = "playlist_extension"
+    program_playlist_path: str = "playlist_path"
