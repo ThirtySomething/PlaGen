@@ -18,6 +18,5 @@ class PlaGen:
 
     ############################################################################
     def playlist_new(self, playlist_name: str, playlist_location: str) -> None:
-        self.playlist.playlist_name_set(playlist_name)
-        self.playlist.playlist_location_set(playlist_location)
+        self.playlist.playlist_new(playlist_name, playlist_location)
         logging.info(f"New playlist [{self.playlist}]")

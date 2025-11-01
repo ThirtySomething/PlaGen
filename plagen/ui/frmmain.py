@@ -1,6 +1,16 @@
 import logging
 
-from wx import CANCEL, ICON_QUESTION, ID_OK, OK, CommandEvent, MessageDialog
+from wx import (
+    CANCEL,
+    DEFAULT_FRAME_STYLE,
+    ICON_QUESTION,
+    ID_OK,
+    MAXIMIZE_BOX,
+    OK,
+    RESIZE_BORDER,
+    CommandEvent,
+    MessageDialog,
+)
 
 from plagen.plagen import PlaGen
 from plagen.plagenconfig import PlagenConfig
@@ -17,6 +27,7 @@ class FrmMain(frmmain):
         self.config: PlagenConfig = None
         self.SetTitle(PlagenDefines.app_name)
         self.plagen: PlaGen = None
+        self.WindowStyle = DEFAULT_FRAME_STYLE ^ RESIZE_BORDER ^ MAXIMIZE_BOX
 
     ############################################################################
     def app_close(self) -> None:
@@ -25,6 +36,18 @@ class FrmMain(frmmain):
         dlg.Destroy()
         if ID_OK == result:
             self.Destroy()
+
+    ############################################################################
+    def app_playlist_new(self) -> None:
+        dlg: DlgPlaylistNew = DlgPlaylistNew(self)
+        dlg.init_special(self.config)
+        dlg.ShowModal()
+        playlistname: str = dlg.playlistname_get()
+        if 0 < len(playlistname):
+            self.plagen.playlist_clear()
+            self.plagen.playlist_new(playlistname, self.config.value_get(PlagenDefines.section_program, PlagenDefines.program_playlist_path))
+            self.m_textctrl_playlist.SetValue(playlistname)
+        dlg.Destroy()
 
     ############################################################################
     def init_special(self, plagenconfig: PlagenConfig) -> None:
@@ -37,16 +60,48 @@ class FrmMain(frmmain):
         self.app_close()
 
     ############################################################################
+    def on_btn_playlist_new(self, event: CommandEvent) -> None:
+        self.app_playlist_new()
+
+    ############################################################################
+    def on_btn_playlist_save(self, event: CommandEvent) -> None:
+        logging.info("Not implemented yet")
+        event.Skip()
+
+    ############################################################################
+    def on_btn_playlist_edit(self, event: CommandEvent) -> None:
+        logging.info("Not implemented yet")
+        event.Skip()
+
+    ############################################################################
+    def on_btn_playlist_revert(self, event: CommandEvent) -> None:
+        logging.info("Not implemented yet")
+        event.Skip()
+
+    ############################################################################
+    def on_menu_file_edit(self, event: CommandEvent) -> None:
+        logging.info("Not implemented yet")
+        event.Skip()
+
+    ############################################################################
     def on_menu_file_exit(self, event: CommandEvent) -> None:
         self.app_close()
 
     ############################################################################
     def on_menu_file_new(self, event: CommandEvent) -> None:
-        dlg: DlgPlaylistNew = DlgPlaylistNew(self)
-        dlg.init_special(self.config)
-        dlg.ShowModal()
-        playlistname: str = dlg.playlistname_get()
-        if 0 < len(playlistname):
-            self.plagen.playlist_clear()
-            self.plagen.playlist_new(playlistname, self.config.value_get(PlagenDefines.section_program, PlagenDefines.program_playlist_path))
-        dlg.Destroy()
+        self.app_playlist_new()
+
+    ############################################################################
+    def on_menu_file_revert(self, event: CommandEvent) -> None:
+        logging.info("Not implemented yet")
+        event.Skip()
+
+    ############################################################################
+    def on_menu_file_save(self, event: CommandEvent) -> None:
+        logging.info("Not implemented yet")
+        event.Skip()
+
+    ############################################################################
+    def on_menu_file_settings(self, event: CommandEvent) -> None:
+        logging.info("Not implemented yet")
+        event.Skip()
