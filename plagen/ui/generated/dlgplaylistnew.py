@@ -34,7 +34,7 @@ class dlgplaylistnew ( wx.Dialog ):
         m_boxsizer_name.Add( self.m_statictext_name, 0, wx.ALL|wx.ALIGN_CENTER_VERTICAL, 5 )
 
         self.m_textctrl_name = wx.TextCtrl( self, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.Size( 120,-1 ), 0 )
-        m_boxsizer_name.Add( self.m_textctrl_name, 0, wx.ALL, 5 )
+        m_boxsizer_name.Add( self.m_textctrl_name, 0, wx.ALL|wx.ALIGN_CENTER_VERTICAL, 5 )
 
 
         m_boxsizer_playlist.Add( m_boxsizer_name, 1, wx.EXPAND, 5 )
@@ -45,6 +45,8 @@ class dlgplaylistnew ( wx.Dialog ):
         m_boxsizer_location.Add( self.m_button_location, 0, wx.ALL, 5 )
 
         self.m_textctrl_location = wx.TextCtrl( self, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.Size( 120,-1 ), 0 )
+        self.m_textctrl_location.Enable( False )
+
         m_boxsizer_location.Add( self.m_textctrl_location, 0, wx.ALL|wx.ALIGN_CENTER_VERTICAL, 5 )
 
 

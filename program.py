@@ -1,11 +1,10 @@
-import wx
 import logging
-import sys
-import os
 import platform
 
-from plagen.plagendefines import PlagenDefines
+import wx
+
 from plagen.plagenconfig import PlagenConfig
+from plagen.plagendefines import PlagenDefines
 from plagen.ui.frmmain import FrmMain
 
 PLAGEN_CONFIG = PlagenConfig(f"{PlagenDefines.app_name}.json")

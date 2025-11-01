@@ -20,7 +20,7 @@ _ = gettext.gettext
 class frmmain ( wx.Frame ):
 
     def __init__( self, parent ):
-        wx.Frame.__init__ ( self, parent, id = wx.ID_ANY, title = wx.EmptyString, pos = wx.DefaultPosition, size = wx.Size( 500,300 ), style = wx.DEFAULT_FRAME_STYLE|wx.TAB_TRAVERSAL )
+        wx.Frame.__init__ ( self, parent, id = wx.ID_ANY, title = wx.EmptyString, pos = wx.DefaultPosition, size = wx.Size( -1,-1 ), style = wx.DEFAULT_FRAME_STYLE|wx.TAB_TRAVERSAL )
 
         self.SetSizeHints( wx.DefaultSize, wx.DefaultSize )
 
@@ -42,12 +42,21 @@ class frmmain ( wx.Frame ):
 
         m_boxsizer_playlist = wx.BoxSizer( wx.HORIZONTAL )
 
+        self.m_statictext_playlist = wx.StaticText( self, wx.ID_ANY, _(u"Current playlist"), wx.DefaultPosition, wx.Size( 120,-1 ), 0 )
+        self.m_statictext_playlist.Wrap( -1 )
+
+        m_boxsizer_playlist.Add( self.m_statictext_playlist, 0, wx.ALL, 5 )
+
+        self.m_textctrl_playlist = wx.TextCtrl( self, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.Size( 120,-1 ), 0 )
+        m_boxsizer_playlist.Add( self.m_textctrl_playlist, 0, wx.ALL, 5 )
+
 
         m_boxsizer_frmmain.Add( m_boxsizer_playlist, 1, wx.EXPAND, 5 )
 
 
         self.SetSizer( m_boxsizer_frmmain )
         self.Layout()
+        m_boxsizer_frmmain.Fit( self )
         self.m_statusBar1 = self.CreateStatusBar( 1, wx.STB_SIZEGRIP, wx.ID_ANY )
 
         self.Centre( wx.BOTH )
